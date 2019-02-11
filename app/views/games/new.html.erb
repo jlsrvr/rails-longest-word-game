@@ -1,0 +1,12 @@
+<h1>New Game</h1>
+<ul style="list-style: none">
+  <% @letters.flatten.each do |letter| %>
+  <li class = "letter-card" style="display: inline-block"> <%= letter %> </li>
+  <% end %>
+</ul>
+<form action="score" method="post">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= hidden_field_tag :letters, @letters.flatten.join %>
+  <input type="text" name="proposition">
+  <input type="submit" value="Check my word!">
+</form>
